@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ivonne & Eric - Nuestra Boda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f2;
+      color: #333;
+      text-align: center;
+    }
+    section {
+      padding: 30px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #b03a2e;
+    }
+    a {
+      color: #b03a2e;
+      text-decoration: none;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .zoom-in {
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all 1s ease;
+    }
+    .zoom-in.visible {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .countdown {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    audio {
+      margin-top: 20px;
+    }
+    img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      h2 { font-size: 1.4em; }
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <img src="encabezado.jpg" alt="Ivonne y Eric" class="zoom-in" id="img1">
+    <h1 class="fade-in" id="title">¡Nos Casamos!</h1>
+    <p class="fade-in" id="verse"><em>“Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor.”</em><br>– Corintios 13:13</p>
+  </section>
+
+  <section>
+    <h2>📅 Viernes 20 de febrero de 2026 - 20:00 hs</h2>
+    <p>📍 <a href="https://maps.app.goo.gl/TSiKr7wpvBFGrmbMA" target="_blank">Jano’s Eventos, Benavídez</a></p>
+    <p>🎩 Dress code: Elegante. Evitar blanco, nude, celeste y azul.</p>
+  </section>
+
+  <section>
+    <h2>🍽️ Menú</h2>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdUjOEaUPQvbCPmX97qUphi8Y1hb56KD88VEdiPnio1jcFX8g/alreadyresponded?pli=1&pli=1" target="_blank">Indicá tus restricciones alimentarias</a></p>
+  </section>
+
+  <section>
+    <h2>🎶 Música</h2>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSf4d7-FKDIBcbZ8edsLHuuaJdFeJzAns79jK4spCZTTmQRzGw/viewform" target="_blank">Sugerí canciones para la fiesta</a></p>
+  </section>
+
+  <section>
+    <h2>🎁 Regalos</h2>
+    <p>CBU: 0000000000000000000000<br>Alias: BODA.IVONNE.ERIC</p>
+  </section>
+
+  <section>
+    <h2>📸 Fotos</h2>
+    <p><a href="https://drive.google.com/drive/folders/XYZ" target="_blank">Subí tus fotos y videos acá</a></p>
+  </section>
+
+  <section>
+    <h2>⏰ Cuenta regresiva</h2>
+    <div class="countdown" id="countdown"></div>
+  </section>
+
+  <section>
+    <h2>🎵 Música de fondo</h2>
+    <audio autoplay loop controls>
+      <source src="musica.mp3" type="audio/mpeg">
+      Tu navegador no soporta audio.
+    </audio>
+  </section>
+
+  <script>
+    // Animaciones al cargar
+    window.addEventListener('load', () => {
+      document.getElementById('img1').classList.add('visible');
+      document.getElementById('title').classList.add('visible');
+      document.getElementById('verse').classList.add('visible');
+    });
+
+    // Cuenta regresiva
+    const targetDate = new Date("2026-02-20T20:00:00");
+    const countdown = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date();
+      const diff = targetDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      countdown.innerHTML = `${days} días, ${hours} hs, ${minutes} min, ${seconds} seg`;
+    }, 1000);
+  </script>
+
+</body>
+</html>
